@@ -1,0 +1,13 @@
+.annypulare-menu-inicial-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #d8dde2;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.annypulare-btn {
+    margin-bottom: 20px;
+    width: 240px;
+}
