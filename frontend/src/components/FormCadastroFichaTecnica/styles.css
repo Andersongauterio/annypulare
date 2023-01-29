@@ -1,21 +1,38 @@
 .annypulare-form-cad-ficha-tecnica-container {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.annypulare-form-box {
-    background-color: #d8dde2;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    padding: 10px;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    width: 100%;
 }
 
 .annypulare-form-cad-ficha-tecnica-form {
     width: 100%;
+}
+
+.annypulare-form-cad-ficha-tecnica-add-ingrediente button {
+    height: 50px;
+    width: 200px;
+    margin-left: 20px;
+}
+
+.annypulare-form-cad-ficha-tecnica-add-ingrediente {
+    display: flex;
+    width: 100%;
+}
+
+.annypulare-form-cad-ficha-tecnica-list-ingrediente {
+    padding: 10px;
+}
+
+.annypulare-form-cad-ficha-tecnica-li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.annypulare-form-cad-ficha-tecnica-li + .annypulare-form-cad-ficha-tecnica-li {
+    margin-top: 5px;
+    border-top: 1px solid #8e9397;
+    padding-top: 5px;
+}
+
+.annypulare-form-cad-ficha-tecnica-list-ingrediente button {
+    margin-left: 20px;
 }
