@@ -3,7 +3,9 @@ import './styles.css';
 
 const ManterFichaTecnica = () => {
     return (
-        <FormCadastroFichaTecnica />
+        <div className="annypulare-manter-ficha-tecnica">
+            <FormCadastroFichaTecnica />
+        </div>
     );
 };
 
