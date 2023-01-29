@@ -9,27 +9,30 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ficha_tecnica")
-public class FichaTecnica implements Serializable{
+@Table(name = "produto")
+public class Produto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nome;
-	
+
 	private String descricao;
-	
+
 	private Categoria categoria;
 	
 	private String modoDePreparo;
 	
 	private String propriedades;
-	
-	public FichaTecnica() {
-		
+
+	private String tamanho;
+
+	private Long qtdeEstoque;
+
+	public Produto() {
 	}
 
 	public Long getId() {
@@ -54,6 +57,22 @@ public class FichaTecnica implements Serializable{
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public Long getQtdeEstoque() {
+		return qtdeEstoque;
+	}
+
+	public void setQtdeEstoque(Long qtdeEstoque) {
+		this.qtdeEstoque = qtdeEstoque;
+	}
+
+	public String getTamanho() {
+		return tamanho;
+	}
+
+	public void setTamanho(String tamanho) {
+		this.tamanho = tamanho;
 	}
 
 	public Categoria getCategoria() {
@@ -84,7 +103,7 @@ public class FichaTecnica implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
@@ -97,11 +116,11 @@ public class FichaTecnica implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		FichaTecnica other = (FichaTecnica) obj;
-		if (descricao == null) {
-			if (other.descricao != null)
+		Produto other = (Produto) obj;
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!descricao.equals(other.descricao))
+		} else if (!id.equals(other.id))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
@@ -110,5 +129,5 @@ public class FichaTecnica implements Serializable{
 			return false;
 		return true;
 	}
-	
+
 }
