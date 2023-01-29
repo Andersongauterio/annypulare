@@ -8,28 +8,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import br.com.annypularebackend.entities.enuns.UnidadeMedida;
-
 @Entity
-@Table(name = "insumos")
-public class Insumo implements Serializable {
+@Table(name="ficha_tecnica")
+public class FichaTecnica implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	private String nome;
-
+	
 	private String descricao;
-
-	private UnidadeMedida unidadeMedida;
-
-	private Long qtdeEstoque;
-
-	public Insumo() {
-
+	
+	private Categoria categoria;
+	
+	private String modoDePreparo;
+	
+	private String propriedades;
+	
+	public FichaTecnica() {
+		
 	}
 
 	public Long getId() {
@@ -56,27 +56,36 @@ public class Insumo implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Long getQtdeEstoque() {
-		return qtdeEstoque;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setQtdeEstoque(Long qtdeEstoque) {
-		this.qtdeEstoque = qtdeEstoque;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
-	public UnidadeMedida getUnidadeMedida() {
-		return unidadeMedida;
+	public String getModoDePreparo() {
+		return modoDePreparo;
 	}
 
-	public void setUnidadeMedida(UnidadeMedida unidadeMedida) {
-		this.unidadeMedida = unidadeMedida;
+	public void setModoDePreparo(String modoDePreparo) {
+		this.modoDePreparo = modoDePreparo;
+	}
+
+	public String getPropriedades() {
+		return propriedades;
+	}
+
+	public void setPropriedades(String propriedades) {
+		this.propriedades = propriedades;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
 
@@ -88,12 +97,18 @@ public class Insumo implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Insumo other = (Insumo) obj;
-		if (id == null) {
-			if (other.id != null)
+		FichaTecnica other = (FichaTecnica) obj;
+		if (descricao == null) {
+			if (other.descricao != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!descricao.equals(other.descricao))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
 			return false;
 		return true;
 	}
+	
 }

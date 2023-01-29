@@ -10,17 +10,21 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "categorias")
-public class Categoria implements Serializable{
+public class Categoria implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nome;
-	
+
 	private String descricao;
+
+	public Categoria() {
+
+	}
 
 	public Long getId() {
 		return id;
@@ -76,5 +80,5 @@ public class Categoria implements Serializable{
 			return false;
 		return true;
 	}
-		
+
 }
