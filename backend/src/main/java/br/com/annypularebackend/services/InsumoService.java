@@ -14,56 +14,62 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.annypularebackend.dto.CategoriaDTO;
-import br.com.annypularebackend.entities.Categoria;
-import br.com.annypularebackend.repositories.CategoriaRepository;
+import br.com.annypularebackend.dto.InsumoDTO;
+import br.com.annypularebackend.entities.Insumo;
+import br.com.annypularebackend.entities.enuns.UnidadeMedida;
+import br.com.annypularebackend.repositories.InsumoRepository;
 import br.com.annypularebackend.services.exceptions.DatabaseException;
 import br.com.annypularebackend.services.exceptions.ResourceNotFoundException;
 
 @Service
-public class CategoriaService {
+public class InsumoService {
 
+	
 	@Autowired
-	private CategoriaRepository repository;
+	private InsumoRepository repository;
 
 	@Transactional(readOnly = true)
-	public List<CategoriaDTO> findAll() {
-		List<Categoria> list = repository.findAll();
+	public List<InsumoDTO> findAll() {
+		List<Insumo> list = repository.findAll();
 
-		return list.stream().map(x -> new CategoriaDTO(x)).collect(Collectors.toList());
+		return list.stream().map(x -> new InsumoDTO(x)).collect(Collectors.toList());
 
 	}
 	
-	public Page<CategoriaDTO> findAllPaged(Pageable pageable) {
-		Page<Categoria> list = repository.findAll(pageable);
-		return list.map(x -> new CategoriaDTO(x));
+	public Page<InsumoDTO> findAllPaged(Pageable pageable) {
+		Page<Insumo> list = repository.findAll(pageable);
+		return list.map(x -> new InsumoDTO(x));
 	}
 
 	@Transactional(readOnly = true)
-	public CategoriaDTO findById(Long id) {
-		Optional<Categoria> obj = repository.findById(id);
-		Categoria entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
-		return new CategoriaDTO(entity);
+	public InsumoDTO findById(Long id) {
+		Optional<Insumo> obj = repository.findById(id);
+		Insumo entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
+		return new InsumoDTO(entity);
 	}
 
 	@Transactional
-	public CategoriaDTO insert(CategoriaDTO dto) {
-		Categoria entity = new Categoria();
+	public InsumoDTO insert(InsumoDTO dto) {
+		Insumo entity = new Insumo();
 		entity.setNome(dto.getNome());
 		entity.setDescricao(dto.getDescricao());
+		entity.setQtdeEstoque(dto.getQtdeEstoque());
+		entity.setUnidadeMedida(UnidadeMedida.valueOf(dto.getUnidadeMedida()));
 		entity = repository.save(entity);
-		return new CategoriaDTO(entity);
+		return new InsumoDTO(entity);
 	}
 
 	@Transactional
-	public CategoriaDTO update(Long id, CategoriaDTO dto) {
+	public InsumoDTO update(Long id, InsumoDTO dto) {
 		try {
 			@SuppressWarnings("deprecation")
-			Categoria entity = repository.getOne(id);
+			Insumo entity = repository.getOne(id);
 			entity.setNome(dto.getNome());
 			entity.setDescricao(dto.getDescricao());
+			entity.setQtdeEstoque(dto.getQtdeEstoque());
+			entity.setUnidadeMedida(UnidadeMedida.valueOf(dto.getUnidadeMedida()));
 			entity = repository.save(entity);
-			return new CategoriaDTO(entity);
+			return new InsumoDTO(entity);
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException("Id not found" + id);
 		}
@@ -78,5 +84,5 @@ public class CategoriaService {
 			throw new DatabaseException("Integrity violation");
 		}
 	}
-
+	
 }
