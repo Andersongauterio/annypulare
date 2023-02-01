@@ -26,9 +26,9 @@ public class InsumoProduto implements Serializable {
 
 	}
 
-	public InsumoProduto(Insumo insumo, Produto produto, InsumoProdutoPK id, Long qtde, UnidadeMedida unidadeMedida) {
-		id.setInsumo(insumo);
-		id.setProduto(produto);
+	public InsumoProduto(Insumo insumo, Produto produto, Long qtde, UnidadeMedida unidadeMedida) {
+		this.id.setInsumo(insumo);
+		this.id.setProduto(produto);
 		this.qtde = qtde;
 		this.unidadeMedida = unidadeMedida;
 	}
