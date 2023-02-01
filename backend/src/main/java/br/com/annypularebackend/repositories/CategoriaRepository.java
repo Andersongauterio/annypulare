@@ -1,5 +1,9 @@
 package br.com.annypularebackend.repositories;
 
-public interface CategoriaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.annypularebackend.entities.Categoria;
+
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
 }
