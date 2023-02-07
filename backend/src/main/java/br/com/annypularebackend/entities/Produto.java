@@ -27,9 +27,9 @@ public class Produto implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
-	
+
 	private String modoDePreparo;
-	
+
 	private String propriedades;
 
 	private String tamanho;
@@ -37,6 +37,18 @@ public class Produto implements Serializable {
 	private Long qtdeEstoque;
 
 	public Produto() {
+	}
+
+	public Produto(Long id, String nome, String descricao, Categoria categoria, String modoDePreparo,
+			String propriedades, String tamanho, Long qtdeEstoque) {
+		this.id = id;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.categoria = categoria;
+		this.modoDePreparo = modoDePreparo;
+		this.propriedades = propriedades;
+		this.tamanho = tamanho;
+		this.qtdeEstoque = qtdeEstoque;
 	}
 
 	public Long getId() {

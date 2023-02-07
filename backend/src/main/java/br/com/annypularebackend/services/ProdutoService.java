@@ -24,13 +24,13 @@ import br.com.annypularebackend.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ProdutoService {
-	
+
 	@Autowired
 	private ProdutoRepository repository;
-	
+
 	@Autowired
 	private CategoriaRepository categoriaRepository;
-	
+
 	@Transactional(readOnly = true)
 	public List<ProdutoDTO> findAll() {
 		List<Produto> list = repository.findAll();
@@ -38,10 +38,14 @@ public class ProdutoService {
 		return list.stream().map(x -> new ProdutoDTO(x)).collect(Collectors.toList());
 
 	}
-	
-	public Page<ProdutoDTO> findAllPaged(Pageable pageable) {
-		Page<Produto> list = repository.findAll(pageable);
-		return list.map(x -> new ProdutoDTO(x));
+
+	@Transactional(readOnly = true)
+	public Page<ProdutoDTO> findAllPaged(Long categoriaId, String nome, Pageable pageable) {
+		@SuppressWarnings("deprecation")
+		Categoria categoria = (categoriaId == 0) ? null : categoriaRepository.getOne(categoriaId);
+		Page<Produto> page = repository.find(categoria, nome, pageable);
+		repository.findProductsWithCategories(page.getContent());
+		return page.map(x -> new ProdutoDTO(x));
 	}
 
 	@Transactional(readOnly = true)
@@ -95,6 +99,5 @@ public class ProdutoService {
 			throw new DatabaseException("Integrity violation");
 		}
 	}
-
 
 }
