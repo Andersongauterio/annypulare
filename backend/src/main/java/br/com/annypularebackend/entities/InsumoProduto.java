@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import br.com.annypularebackend.entities.enuns.UnidadeMedida;
@@ -20,6 +22,7 @@ public class InsumoProduto implements Serializable {
 
 	private Long qtde;
 
+	@Enumerated(EnumType.STRING)
 	private UnidadeMedida unidadeMedida;
 
 	public InsumoProduto() {
