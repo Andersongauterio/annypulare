@@ -40,11 +40,8 @@ public class ProdutoService {
 	}
 
 	@Transactional(readOnly = true)
-	public Page<ProdutoDTO> findAllPaged(Long categoriaId, String nome, Pageable pageable) {
-		@SuppressWarnings("deprecation")
-		Categoria categoria = (categoriaId == 0) ? null : categoriaRepository.getOne(categoriaId);
-		Page<Produto> page = repository.find(categoria, nome, pageable);
-		repository.findProductsWithCategories(page.getContent());
+	public Page<ProdutoDTO> findAllPaged(Pageable pageable) {
+		Page<Produto> page = repository.findAll(pageable);
 		return page.map(x -> new ProdutoDTO(x));
 	}
 
@@ -60,7 +57,7 @@ public class ProdutoService {
 		Produto entity = new Produto();
 		entity.setNome(dto.getNome());
 		entity.setDescricao(dto.getDescricao());
-		Categoria categoria = categoriaRepository.findById(dto.getId()).get();
+		Categoria categoria = categoriaRepository.findById(dto.getCategoriaId()).get();
 		entity.setCategoria(categoria);
 		entity.setModoDePreparo(dto.getModoDePreparo());
 		entity.setPropriedades(dto.getPropriedades());
@@ -77,7 +74,7 @@ public class ProdutoService {
 			Produto entity = repository.getOne(id);
 			entity.setNome(dto.getNome());
 			entity.setDescricao(dto.getDescricao());
-			Categoria categoria = categoriaRepository.findById(dto.getId()).get();
+			Categoria categoria = categoriaRepository.findById(dto.getCategoriaId()).get();
 			entity.setCategoria(categoria);
 			entity.setModoDePreparo(dto.getModoDePreparo());
 			entity.setPropriedades(dto.getPropriedades());

@@ -34,7 +34,7 @@ public class ProdutoResource {
 			@RequestParam(value = "categoriaId", defaultValue = "0") Long categoriaId,
 			@RequestParam(value = "nome", defaultValue = "") String nome, Pageable pageable) {
 
-		Page<ProdutoDTO> list = service.findAllPaged(categoriaId, nome.trim(), pageable);
+		Page<ProdutoDTO> list = service.findAllPaged(pageable);
 		return ResponseEntity.ok().body(list);
 	}
 
