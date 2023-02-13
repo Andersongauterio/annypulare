@@ -29,7 +29,7 @@ const FormCadastroFichaTecnica = () => {
     useEffect(() => {
 		requestBackend({ url: '/categorias' }).then((response) => {
 			setSelectCategoria(response.data.content);
-            console.log(response.data.content)
+            console.log(response.data.content);
 		});
 	}, []);
 
