@@ -1,11 +1,12 @@
 import { Controller, useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './styles.css';
 import DefaultButtons from '../DefaultButtons';
 import Select from 'react-select';
 import { Insumo } from '../../types/insumo';
 import { Categoria } from '../../types/categoria';
-import { FichaTecnica } from '../../types/fichaTecnica';
+import { Produto } from '../../types/produto';
+import { requestBackend } from '../../util/requests';
 
 export type FichaTecnicaData = {
 };
@@ -17,14 +18,21 @@ const FormCadastroFichaTecnica = () => {
     
     const [selectCategorias, setSelectCategoria] = useState<Categoria[]>([]);
     const { control,
-	} = useForm<FichaTecnica>();
+	} = useForm<Produto>();
 
     const { handleSubmit } =
 		useForm<FichaTecnicaData>();
 
-    const onSubmit = (formData: FichaTecnicaData) => {
-		
+    const onSubmit = (formData: FichaTecnicaData) => {	
 	};
+
+    useEffect(() => {
+		requestBackend({ url: '/categorias' }).then((response) => {
+			setSelectCategoria(response.data.content);
+            console.log(response.data.content)
+		});
+	}, []);
+
     return (
         <div className="annypulare-form-cad-ficha-tecnica-container annypulare-form-container">
             <form onSubmit={handleSubmit(onSubmit)} className="annypulare-form-cad-ficha-tecnica-form">
@@ -50,7 +58,6 @@ const FormCadastroFichaTecnica = () => {
                             <Select
                                 {...field}
                                 options={selectCategorias}
-                                classNamePrefix={""}
                                 getOptionLabel={(categoria: Categoria) => categoria.nome}
                                 getOptionValue={(categoria: Categoria) =>
                                     String(categoria.id)

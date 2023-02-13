@@ -1,4 +1,4 @@
-import FormCadastroFichaTecnica from '../../components/FormCadastroFichaTecnica';
+import FormCadastroFichaTecnica from '../../components/FormCadastroProduto';
 import './styles.css';
 
 const ManterFichaTecnica = () => {

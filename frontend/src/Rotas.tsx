@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import ManterFichaTecnica from './pages/ManterFichaTecnica';
+import ManterFichaTecnica from './pages/ManterProduto';
 import Home from "./pages/Home";
 import ManterInsumo from './pages/ManterInsumo';
 import ManterCategoriaProduto from './pages/ManterCategoriaProduto';
