@@ -29,18 +29,18 @@ const NavBar = () => {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/produtos">
+							<NavLink to="/manterProdutos">
 								Produtos
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/insumos">
-								ADMIN
+							<NavLink to="/manterInsumo">
+								Insumos
 							</NavLink>
 						</li>
                         <li>
-							<NavLink to="/categorias">
-								ADMIN
+							<NavLink to="/manterCategoriaProduto">
+								Categorias
 							</NavLink>
 						</li>
 					</ul>

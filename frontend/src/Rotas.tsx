@@ -11,7 +11,7 @@ const Rotas = () => {
             <NavBar />
             <Routes >
                 <Route path='/' element={<Home />} />
-                <Route path='/manterFichaTecnica' element={<ManterFichaTecnica />} />
+                <Route path='/manterProdutos' element={<ManterFichaTecnica />} />
                 <Route path='/manterInsumo' element={<ManterInsumo />} />
                 <Route path='/manterCategoriaProduto' element={<ManterCategoriaProduto />} />
             </Routes>
