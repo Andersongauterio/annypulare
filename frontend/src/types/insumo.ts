@@ -3,4 +3,5 @@ export type Insumo = {
     nome: string;
     descricao: string;
     unidadeMedida: string;
+    qtdeEstoque: number;
 }
