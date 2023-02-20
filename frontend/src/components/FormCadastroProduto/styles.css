@@ -36,3 +36,24 @@
 .annypulare-form-cad-ficha-tecnica-list-ingrediente button {
     margin-left: 20px;
 }
+
+.categoria-select__control {
+    border-radius: 10px !important;
+    font-size: 1em;
+    letter-spacing: -0.015em;
+    color: #263238;
+    height: 50px;
+    width: 250px;
+}
+
+.categoria-select__placeholder {
+    color: #9e9e9e !important;
+}
+
+.categoria-select__indicator-separator {
+    display: none;
+}
+
+.form-cad-produto-insumo {
+    width: 300px;
+}

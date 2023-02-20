@@ -58,6 +58,8 @@ const FormCadastroFichaTecnica = () => {
                             <Select
                                 {...field}
                                 options={selectCategorias}
+                                placeholder="Categoria:"
+                                classNamePrefix={'categoria-select'}
                                 getOptionLabel={(categoria: Categoria) => categoria.nome}
                                 getOptionValue={(categoria: Categoria) =>
                                     String(categoria.id)
@@ -72,7 +74,7 @@ const FormCadastroFichaTecnica = () => {
                         <input 
                             type="text" 
                             value={novoInsumo?.nome}
-                            className="form-control base-input" />
+                            className="form-control base-input form-cad-produto-insumo" />
                         <button className="btn btn-secondary"
                             onClick={() => addNovoIngrediente()}>Adicionar
                         </button>
