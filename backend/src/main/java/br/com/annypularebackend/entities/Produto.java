@@ -1,6 +1,8 @@
 package br.com.annypularebackend.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -35,6 +38,9 @@ public class Produto implements Serializable {
 	private String tamanho;
 
 	private Long qtdeEstoque;
+	
+	@OneToMany(mappedBy = "id.produto")
+	private Set<InsumoProduto> insumos = new HashSet<>();
 
 	public Produto() {
 	}
@@ -113,6 +119,10 @@ public class Produto implements Serializable {
 
 	public void setPropriedades(String propriedades) {
 		this.propriedades = propriedades;
+	}
+	
+	public Set<InsumoProduto> getInsumos() {
+		return insumos;
 	}
 
 	@Override

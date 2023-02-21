@@ -14,23 +14,19 @@ public class InsumoProdutoDTO implements Serializable {
 
 	private Long qtde;
 
-	private String unidadeMedida;
-
 	public InsumoProdutoDTO() {
 	}
 
-	public InsumoProdutoDTO(Long produtoId, Long insumoId, Long qtde, String unidadeMedida) {
+	public InsumoProdutoDTO(Long produtoId, Long insumoId, Long qtde) {
 		this.produtoId = produtoId;
 		this.insumoId = insumoId;
 		this.qtde = qtde;
-		this.unidadeMedida = unidadeMedida;
 	}
 
 	public InsumoProdutoDTO(InsumoProduto insumoProduto) {
 		this.produtoId = insumoProduto.getId().getProduto().getId();
 		this.insumoId = insumoProduto.getId().getInsumo().getId();
 		this.qtde = insumoProduto.getQtde();
-		this.unidadeMedida = insumoProduto.getUnidadeMedida().toString();
 	}
 
 	public Long getProdutoId() {
@@ -56,13 +52,4 @@ public class InsumoProdutoDTO implements Serializable {
 	public void setQtde(Long qtde) {
 		this.qtde = qtde;
 	}
-
-	public String getUnidadeMedida() {
-		return unidadeMedida;
-	}
-
-	public void setUnidadeMedida(String unidadeMedida) {
-		this.unidadeMedida = unidadeMedida;
-	}
-
 }
