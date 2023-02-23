@@ -13,35 +13,34 @@ export type FichaTecnicaData = {
 
 const FormCadastroFichaTecnica = () => {
 
-    const [ingredientes, setIngredientes] = useState<Insumo[]>([]);
-    const [novoInsumo, setNovoInsumo] = useState<Insumo>();
-    
+    const [insumos, setInsumos] = useState<Insumo[]>([]);
+
     const [selectCategorias, setSelectCategoria] = useState<Categoria[]>([]);
     const { control,
-	} = useForm<Produto>();
+    } = useForm<Produto>();
 
     const { handleSubmit } =
-		useForm<FichaTecnicaData>();
+        useForm<FichaTecnicaData>();
 
-    const onSubmit = (formData: FichaTecnicaData) => {	
-	};
+    const onSubmit = (formData: FichaTecnicaData) => {
+    };
 
     useEffect(() => {
-		requestBackend({ url: '/categorias' }).then((response) => {
-			setSelectCategoria(response.data.content);
+        requestBackend({ url: '/categorias' }).then((response) => {
+            setSelectCategoria(response.data.content);
             console.log(response.data.content);
-		});
-	}, []);
+        });
+    }, []);
 
     return (
         <div className="annypulare-form-cad-ficha-tecnica-container annypulare-form-container">
             <form onSubmit={handleSubmit(onSubmit)} className="annypulare-form-cad-ficha-tecnica-form">
                 <h2>Informação do Produto:</h2>
                 <div className="annypulare-form-cad-ficha-tecnica-info-produto annypulare-form-box">
-                    <input 
+                    <input
                         type="text"
-                        required 
-                        name="nome" 
+                        required
+                        name="nome"
                         placeholder="Nome:"
                         className="form-control base-input" />
                     <input
@@ -52,7 +51,7 @@ const FormCadastroFichaTecnica = () => {
                         className="form-control base-input" />
                     <Controller
                         name="categoria"
-                        rules={{required: true}}
+                        rules={{ required: true }}
                         control={control}
                         render={({ field }) => (
                             <Select
@@ -71,60 +70,60 @@ const FormCadastroFichaTecnica = () => {
                 <div className="annypulare-form-cad-ficha-tecnica-ingredientes annypulare-form-box">
                     <h2>Insumos:</h2>
                     <div className="annypulare-form-cad-ficha-tecnica-add-ingrediente">
-                        <input 
-                            type="text" 
-                            value={novoInsumo?.nome}
+                        <input
+                            type="text"
                             className="form-control base-input form-cad-produto-insumo" />
                         <button className="btn btn-secondary"
-                            onClick={() => addNovoIngrediente()}>Adicionar
+                            onClick={() => addNovoInsumo("Novo insumo")}>Adicionar
                         </button>
                     </div>
-                    <div  className="annypulare-form-cad-ficha-tecnica-list-ingrediente">
+                    <div className="annypulare-form-cad-ficha-tecnica-list-ingrediente">
                         <ul>
-                            {ingredientes.map((item,index) => 
-                            <li 
-                                key={index}
-                                className="annypulare-form-cad-ficha-tecnica-li">
-                                {item}
-                                <button 
-                                    onClick={() => deletarItem(index)}
-                                    className="btn btn-secondary">
-                                    Deletar
-                                </button>
-                            </li>)}
+                            {insumos.map((item, index) =>
+                                <li
+                                    key={index}
+                                    className="annypulare-form-cad-ficha-tecnica-li">
+                                    {item}
+                                    <button
+                                        onClick={() => deletarItem(index)}
+                                        className="btn btn-secondary">
+                                        Deletar
+                                    </button>
+                                </li>)}
                         </ul>
                     </div>
                 </div>
                 <div className="annypulare-form-cad-ficha-tecnica-modo-preparo annypulare-form-box">
                     <h2>Modo de preparo:</h2>
                     <textarea
-                    rows={10}
-                    name="mododepreparo"
-                    className="form-control h-auto"
+                        rows={10}
+                        name="mododepreparo"
+                        className="form-control h-auto"
                     />
                 </div>
                 <div className="annypulare-form-cad-ficha-tecnica-propriedades annypulare-form-box">
-                    <h2>Propriedades:</h2>   
+                    <h2>Propriedades:</h2>
                     <textarea
-                    rows={10}
-                    name="propriedades"
-                    className="form-control h-auto"
+                        rows={10}
+                        name="propriedades"
+                        className="form-control h-auto"
                     />
                 </div>
                 <DefaultButtons />
             </form>
         </div>
     );
-    
-    function addNovoIngrediente() {
-        if (novoInsumo !== null) {
+
+    function addNovoInsumo(newInsumo: any) {
+        if (newInsumo !== null) {
+            setInsumos([...insumos, newInsumo]);
         }
     }
 
     function deletarItem(index: number) {
-        let tmp = [...ingredientes];
+        let tmp = [...insumos];
         tmp.splice(index, 1);
-        setIngredientes(tmp);
+        setInsumos(tmp);
     };
 };
 

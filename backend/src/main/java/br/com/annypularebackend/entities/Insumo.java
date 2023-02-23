@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +23,9 @@ public class Insumo implements Serializable {
 	private String nome;
 
 	private String descricao;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "unidade_medida_id")
 	private UnidadeMedida unidadeMedida;
 
 	private Long qtdeEstoque;

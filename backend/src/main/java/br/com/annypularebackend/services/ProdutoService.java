@@ -98,31 +98,6 @@ public class ProdutoService {
 		}
 	}
 
-	@Transactional
-	public ProdutoDTO saveInsumos(InsumoProdutoDTO[] dto) {
-
-		Produto produto = repository.findById(dto[0].getProdutoId()).get();
-		try {
-
-			for (InsumoProdutoDTO insumoProdutoDTO : dto) {
-
-				Insumo insumo = insumoRepository.findById(insumoProdutoDTO.getInsumoId()).get();
-
-				InsumoProduto insumoProduto = new InsumoProduto();
-				insumoProduto.setInsumo(insumo);
-				insumoProduto.setProduto(produto);
-				insumoProduto.setQtde(insumoProdutoDTO.getQtde());
-
-				insumoProduto = insumoProdutoRepository.saveAndFlush(insumoProduto);
-			}
-		} catch (Exception e) {
-			throw new DatabaseException(e.getMessage());
-		}
-
-		return new ProdutoDTO(produto);
-
-	}
-
 	public void delete(Long id) {
 		try {
 			repository.deleteById(id);
