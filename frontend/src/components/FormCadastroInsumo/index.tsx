@@ -34,7 +34,6 @@ const FormCadastroInsumo = () => {
 			url: '/insumos',
 			data,
 		};
-
         requestBackend(config).then(() => {
 			console.log('Sucesso')
 		})
