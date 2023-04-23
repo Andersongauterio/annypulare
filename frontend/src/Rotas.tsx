@@ -5,6 +5,7 @@ import ManterInsumo from './pages/ManterInsumo';
 import ManterCategoriaProduto from './pages/ManterCategoriaProduto';
 import NavBar from './components/NavBar';
 import MenuInicial from './components/MenuInicial';
+import Rotulos from './pages/Rotulos';
 
 const Rotas = () => {
   return (
@@ -20,6 +21,7 @@ const Rotas = () => {
           <Route path='/manterProdutos' element={<ManterFichaTecnica />} />
           <Route path='/manterInsumo' element={<ManterInsumo />} />
           <Route path='/manterCategoriaProduto' element={<ManterCategoriaProduto />} />
+          <Route path='/rotulos' element={<Rotulos />} />
         </Routes>
         </div>
       </div>
