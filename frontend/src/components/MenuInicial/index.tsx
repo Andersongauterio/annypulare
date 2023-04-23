@@ -19,6 +19,11 @@ const MenuInicial = () => {
                     <h6>Manter Insumo</h6>
                 </button>
             </Link>
+            <Link to="/rotulos">
+                <button className="btn btn-primary annypulare-btn">
+                    <h6>Rótulos</h6>
+                </button>
+            </Link>
         </div>
     );
 };
