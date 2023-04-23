@@ -1,10 +1,9 @@
-import FormCadastroFichaTecnica from '../../components/FormCadastroProduto';
 import './styles.css';
 
 const ManterFichaTecnica = () => {
     return (
         <div className="annypulare-manter-ficha-tecnica">
-            <FormCadastroFichaTecnica />
+            <h1>Manter Ficha técnica</h1>
         </div>
     );
 };

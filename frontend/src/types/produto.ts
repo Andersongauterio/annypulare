@@ -1,4 +1,5 @@
 import { Categoria } from './categoria';
+import { Insumo } from './insumo';
 export type Produto = {
     id: number;
     nome: string;
@@ -8,4 +9,5 @@ export type Produto = {
     propriedades: string;
     tamanho: string;
     qtdeEstoque: number;
+    insumos: Insumo[];
 }

@@ -16,8 +16,8 @@ const FormCadastroFichaTecnica = () => {
     const [insumos, setInsumos] = useState<Insumo[]>([]);
 
     const [selectCategorias, setSelectCategoria] = useState<Categoria[]>([]);
-    const { control,
-    } = useForm<Produto>();
+    const [selectInsumos, setSelectInsumo] = useState<Insumo[]>([]);
+    const { control } = useForm<Produto>();
 
     const { handleSubmit } =
         useForm<FichaTecnicaData>();
@@ -70,9 +70,21 @@ const FormCadastroFichaTecnica = () => {
                 <div className="annypulare-form-cad-ficha-tecnica-ingredientes annypulare-form-box">
                     <h2>Insumos:</h2>
                     <div className="annypulare-form-cad-ficha-tecnica-add-ingrediente">
-                        <input
-                            type="text"
-                            className="form-control base-input form-cad-produto-insumo" />
+                        <Controller
+                            name="insumos"
+                            rules={{ required: true }}
+                            render={({ field }) => (
+                                <Select
+                                    {...field}
+                                    options={selectInsumos}
+                                    placeholder="Insumo:"
+                                    getOptionLabel={(insumo: Insumo) => insumo.nome}
+                                    getOptionValue={(insumo: Insumo) =>
+                                        String(insumo.id)
+                                    }
+                                />
+                            )}
+                        />
                         <button className="btn btn-secondary"
                             onClick={() => addNovoInsumo("Novo insumo")}>Adicionar
                         </button>

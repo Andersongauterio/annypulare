@@ -4,7 +4,7 @@ import './styles.css';
 const MenuInicial = () => {
     return (
         <div className="annypulare-menu-inicial-container">
-            <Link to="/manterFichaTecnica">
+            <Link to="/manterProdutos">
                 <button className="btn btn-primary annypulare-btn">
                     <h6>Manter Ficha Técnica</h6>
                 </button>
@@ -19,7 +19,6 @@ const MenuInicial = () => {
                     <h6>Manter Insumo</h6>
                 </button>
             </Link>
-
         </div>
     );
 };

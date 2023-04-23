@@ -1,10 +1,9 @@
-import FormCadastroCategoriaProduto from '../../components/FormCadastroCategoriaProduto';
 import './styles.css';
 
 const ManterCategoriaProduto = () => {
     return (
         <div className="annypulare-manter-categoria-produto-container">
-            <FormCadastroCategoriaProduto />
+            <h1>Manter Categoria do produto</h1>
         </div>
     );
 };

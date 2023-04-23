@@ -55,3 +55,19 @@ ul {
 .base-input::placeholder {
   color: #9E9E9E;
 }
+
+.annypuulare-side-menu {
+  width: 350px;
+  max-height: 100vh;
+  margin-bottom: 10px;
+  overflow-y: auto
+}
+
+.annypulare-main-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.annypulare-main-routes {
+  padding: 15px;
+}
