@@ -14,7 +14,7 @@ public class InsumoDTO implements Serializable {
 
 	private String descricao;
 
-	private Long unidadeMedida;
+	private UnidadeMedidaDTO unidadeMedida;
 
 	private Long qtdeEstoque;
 
@@ -22,22 +22,22 @@ public class InsumoDTO implements Serializable {
 
 	}
 
-	public InsumoDTO(Long id, String nome, String descricao, Long unidadeMedida, Long qtdeEstoque) {
+	public InsumoDTO(Long id, String nome, String descricao, UnidadeMedidaDTO unidadeMedida, Long qtdeEstoque) {
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.unidadeMedida = unidadeMedida;
 		this.qtdeEstoque = qtdeEstoque;
 	}
-	
+
 	public InsumoDTO(Insumo insumo) {
 		this.id = insumo.getId();
 		this.nome = insumo.getNome();
 		this.descricao = insumo.getDescricao();
-		this.unidadeMedida = insumo.getUnidadeMedida().getId();
+		this.unidadeMedida = new UnidadeMedidaDTO(insumo.getUnidadeMedida());
 		this.qtdeEstoque = insumo.getQtdeEstoque();
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -62,11 +62,12 @@ public class InsumoDTO implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Long getUnidadeMedida() {
+
+	public UnidadeMedidaDTO getUnidadeMedida() {
 		return unidadeMedida;
 	}
 
-	public void setUnidadeMedida(Long unidadeMedida) {
+	public void setUnidadeMedida(UnidadeMedidaDTO unidadeMedida) {
 		this.unidadeMedida = unidadeMedida;
 	}
 

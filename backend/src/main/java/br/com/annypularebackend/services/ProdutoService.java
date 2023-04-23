@@ -14,15 +14,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.annypularebackend.dto.InsumoProdutoDTO;
 import br.com.annypularebackend.dto.ProdutoDTO;
 import br.com.annypularebackend.entities.Categoria;
-import br.com.annypularebackend.entities.Insumo;
-import br.com.annypularebackend.entities.InsumoProduto;
 import br.com.annypularebackend.entities.Produto;
 import br.com.annypularebackend.repositories.CategoriaRepository;
-import br.com.annypularebackend.repositories.InsumoProdutoRepository;
-import br.com.annypularebackend.repositories.InsumoRepository;
 import br.com.annypularebackend.repositories.ProdutoRepository;
 import br.com.annypularebackend.services.exceptions.DatabaseException;
 import br.com.annypularebackend.services.exceptions.ResourceNotFoundException;
@@ -32,12 +27,6 @@ public class ProdutoService {
 
 	@Autowired
 	private ProdutoRepository repository;
-
-	@Autowired
-	private InsumoRepository insumoRepository;
-
-	@Autowired
-	private InsumoProdutoRepository insumoProdutoRepository;
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;

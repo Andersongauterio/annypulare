@@ -58,7 +58,7 @@ public class InsumoService {
 		entity.setNome(dto.getNome());
 		entity.setDescricao(dto.getDescricao());
 		entity.setQtdeEstoque(dto.getQtdeEstoque());
-		UnidadeMedida unidadeMedida = unidadeMedidaRepository.findByNome(dto.getNome());
+		UnidadeMedida unidadeMedida = unidadeMedidaRepository.findById(dto.getUnidadeMedida().getId()).get();
 		entity.setUnidadeMedida(unidadeMedida);
 		entity = repository.save(entity);
 		return new InsumoDTO(entity);
