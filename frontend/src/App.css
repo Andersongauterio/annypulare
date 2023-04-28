@@ -4,9 +4,11 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-body {
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .annypulare-form-box {
@@ -58,9 +60,7 @@ ul {
 
 .annypuulare-side-menu {
   width: 350px;
-  max-height: 100vh;
   margin-bottom: 10px;
-  overflow-y: auto
 }
 
 .annypulare-main-content {

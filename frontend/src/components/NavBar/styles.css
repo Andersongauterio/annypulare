@@ -1,6 +1,7 @@
 .annypulare-navbar-container {
     padding-left: 40px;
     min-height: 70px;
+    background-color: #363434;
 }
 
 .main-menu {
@@ -19,6 +20,6 @@
 }
 
 .annypulare-nav-logo-icon img {
-	width: 100px;
+	width: 200px;
 	height: auto;
 }

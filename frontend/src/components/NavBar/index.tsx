@@ -3,10 +3,10 @@ import './styles.css';
 
 const NavBar = () => {
     return (
-        <nav className="navbar navbar-expand-md navbar-dark- bg-primary annypulare-navbar-container">
+        <nav className="navbar navbar-expand-md navbar-dark annypulare-navbar-container">
             <div className="container-fluid">
 				<Link to="/" className="annypulare-nav-logo-icon">
-					<img src={require('../../assets/images/logo.svg').default} alt="Logo" className="annypulare-nav-logo" />
+					<img src={require('../../assets/images/logo.png')} alt="Logo" className="annypulare-nav-logo" />
 				</Link>
 				<button
 					className="navbar-toggler"
