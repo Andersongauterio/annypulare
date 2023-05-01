@@ -1,0 +1,24 @@
+.annypulare-rotulos-list {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+.annypulare-rotulos-li {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.annypulare-rotulos-li:hover {
+  cursor: pointer;
+  background-color: rgb(139, 136, 136);
+}
+
+.annypulare-rotulos-form {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 500px;
+  margin-bottom: 5px;
+  padding: 10px;
+}
